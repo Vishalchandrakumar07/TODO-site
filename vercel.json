@@ -2,7 +2,7 @@
 
     "builds": [{
 
-        "src": "todoprj/wsgi.py",
+        "src": "mywebsite/wsgi.py",
 
         "use": "@vercel/python",
 
@@ -16,7 +16,7 @@
 
             "src": "/(.*)",
 
-            "dest": "todoprj/wsgi.py"
+            "dest": "mywebsite/wsgi.py"
 
         }
 
