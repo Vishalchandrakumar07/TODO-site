@@ -1,9 +1,5 @@
 asgiref 
-dj-database-url 
 Django 
-django-heroku 
-gunicorn 
-psycopg2
 sqlparse 
 tzdata 
-whitenoise 
+ 
