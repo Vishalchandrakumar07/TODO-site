@@ -1,15 +1,25 @@
 {
-  "version": 2,
-  "builds": [
-      {
-          "src": "manage.py",
-          "use": "@vercel/python"
-      }
-  ],
-  "routes": [
-      {
-          "src": "/(.*)",
-          "dest": "/"
-      }
-  ]
+
+    "builds": [{
+
+        "src": "todoprj/wsgi.py",
+
+        "use": "@vercel/python",
+
+        "config": { "maxLambdaSize": "100mb", "runtime": "python3.10" }
+
+    }],
+
+    "routes": [
+
+        {
+
+            "src": "/(.*)",
+
+            "dest": "todoprj/wsgi.py"
+
+        }
+
+    ]
+
 }
