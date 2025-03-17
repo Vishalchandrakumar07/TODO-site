@@ -82,14 +82,9 @@ WSGI_APPLICATION = 'todoprj.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'vishal',         # Your database name
-        'USER': 'postgres',        # Your PostgreSQL username
-        'PASSWORD': 'vishal123?',  # Your PostgreSQL password
-        'HOST': 'localhost',        # Or '127.0.0.1'
-        'PORT': '5432',             # Default PostgreSQL port
-    }
+    'default': dj_database_url.config(
+        default=os.getenv('DATABASE_URL')  # This will read your database URL from environment variables
+    )
 }
 
 
