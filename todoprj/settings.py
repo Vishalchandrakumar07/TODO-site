@@ -3,7 +3,7 @@ import os
 import dj_database_url
 from dotenv import load_dotenv
 
-load_dotenv()  # Load environment variables from a .env file if you have one
+load_dotenv()  # Load environment variables from a .env file
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -25,7 +25,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'todoapp',
-    'whitenoise.runserver_nostatic'
+    'whitenoise.runserver_nostatic',
 ]
 
 MIDDLEWARE = [
@@ -59,15 +59,11 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'todoprj.wsgi.application'
 
+# Database configuration using dj_database_url
+DATABASE_URL = os.getenv('DATABASE_URL')
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'verceldb',         # Your database name
-        'USER': 'default',        # Your PostgreSQL username
-        'PASSWORD': '3RPk1VeSxaCJ',  # Your PostgreSQL password
-        'HOST': 'ep-shy-glade-a4o8y8my-pooler.us-east-1.aws.neon.tech',        # Or '127.0.0.1'
-        'PORT': '5432',             # Default PostgreSQL port
-    }
+    'default': dj_database_url.parse(DATABASE_URL, conn_max_age=600, ssl_require=True)
 }
 
 # Password validation
