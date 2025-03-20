@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login, logout
+# from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from .models import todo
 from django.contrib.auth.decorators import login_required
@@ -66,14 +66,14 @@ def home(request):
 #     return render(request, 'todoapp/login.html')  # Handles GET requests properly
 
 # @login_required
-# def delete_task(request, id):
-#     task = get_object_or_404(todo, id=id)
-#     task.delete()
-#     return redirect('home-page')
+def delete_task(request, id):
+    task = get_object_or_404(todo, id=id)
+    task.delete()
+    return redirect('home-page')
 
 # @login_required
-# def update_task(request, id):
-#     task = todo.objects.get(user=request.user, id=id)
-#     task.status = True
-#     task.save()
-#     return redirect('home-page')
+def update_task(request, id):
+    task = todo.objects.get(user=request.user, id=id)
+    task.status = True
+    task.save()
+    return redirect('home-page')
