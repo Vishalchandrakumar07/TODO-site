@@ -60,10 +60,17 @@ TEMPLATES = [
 WSGI_APPLICATION = 'todoprj.wsgi.application'
 
 # Database configuration using dj_database_url
-DATABASE_URL = os.getenv('DATABASE_URL')
+#DATABASE_URL = os.getenv('DATABASE_URL')
 
 DATABASES = {
-    'default': dj_database_url.parse(DATABASE_URL, conn_max_age=600, ssl_require=True)
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME':'todo',
+        'USER':'root',
+        'PASSWORD':'vishal123?',
+        'HOST':'localhost',
+        'PORT':'3306'
+    }
 }
 
 # Password validation
